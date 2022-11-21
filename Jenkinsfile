@@ -8,6 +8,7 @@
             }
           stage('Build'){
             steps{
+                 sh "cd docker"
                  docker build --tag raghuvamshil/demo:1.0 .
                }
             }
