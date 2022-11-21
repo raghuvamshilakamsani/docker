@@ -19,7 +19,7 @@
             }
            stage('Deploy'){
               steps{
-                   docker run -itd raghuvamshil/demo:1.0
+                   docker run -itd -p 1010:4000 raghuvamshil/demo:1.0
                    echo "docker image is deployed"
                  }
             }
