@@ -3,25 +3,23 @@
      stages {
         stage('git checkout'){
            steps{
-                 git clone https://github.com/raghuvamshilakamsani/docker
-                 echo "checkout from git"
+                 git clone https://github.com/raghuvamshilakamsani/docker.git
                }
             }
           stage('Build'){
             steps{
-                 docker build --tag ubuntu:1
-                 echo "built with tag 1"
+                 docker build --tag raghuvamshil/demo:1.0 .
                }
             }
           stage('push'){
              steps{
-                  docker push https://hub.docker.com/repository/docker/raghuvamshil/dhub-push
                   echo "image is pushed to dockerhub"
+                  docker push raghuvamshil/demo:1.0
                 }
             }
            stage('Deploy'){
               steps{
-                   docker run -itd ubuntu:1
+                   docker run -itd raghuvamshil/demo:1.0
                    echo "docker image is deployed"
                  }
             }
